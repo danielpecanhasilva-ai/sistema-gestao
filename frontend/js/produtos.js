@@ -54,9 +54,18 @@ function botao(texto, classe, aoClicar) {
   return b;
 }
 
+function atualizarResumo() {
+  const ativos = produtos.filter((p) => p.ativo);
+  document.getElementById("r-total").textContent = ativos.length;
+  document.getElementById("r-baixo").textContent = ativos.filter((p) => p.estoque_baixo).length;
+  document.getElementById("r-valor").textContent =
+    formatoReal.format(ativos.reduce((soma, p) => soma + p.preco * p.estoque, 0));
+}
+
 function desenhar() {
   el.lista.replaceChildren();
   el.vazio.hidden = produtos.length > 0;
+  atualizarResumo();
 
   for (const p of produtos) {
     const tr = document.createElement("tr");

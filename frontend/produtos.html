@@ -7,12 +7,29 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="topo">
-    <h1>Sistema de Gestão</h1>
-    <span class="pagina">Produtos</span>
-  </header>
+<div class="app">
+  <aside class="menu">
+    <div class="marca"><b>SG</b><span>Sistema de Gestão</span></div>
+    <nav>
+      <a href="produtos.html" class="ativo">Produtos</a>
+      <span class="breve">Clientes <small>em breve</small></span>
+      <span class="breve">Vendas <small>em breve</small></span>
+      <span class="breve">Relatórios <small>em breve</small></span>
+    </nav>
+  </aside>
 
-  <main class="conteudo">
+  <div class="principal">
+    <header class="cabecalho">
+      <h1>Produtos</h1>
+      <p>Cadastre produtos e acompanhe o estoque.</p>
+    </header>
+
+    <section class="resumo" aria-label="Resumo do estoque">
+      <div><span>Produtos na lista</span><strong id="r-total">0</strong></div>
+      <div class="alerta"><span>Com estoque baixo</span><strong id="r-baixo">0</strong></div>
+      <div><span>Valor em estoque</span><strong id="r-valor">R$ 0,00</strong></div>
+    </section>
+
     <section class="cartao">
       <h2 id="titulo-form">Novo produto</h2>
       <form id="form-produto" novalidate>
@@ -63,7 +80,8 @@
       </div>
       <p id="vazio" hidden>Nenhum produto encontrado.</p>
     </section>
-  </main>
+  </div>
+</div>
 
   <script src="js/api.js"></script>
   <script src="js/produtos.js"></script>
